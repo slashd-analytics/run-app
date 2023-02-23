@@ -3,7 +3,7 @@ import {ref, onMounted} from 'vue'
 import Editor from '@guolao/vue-monaco-editor'
 import SlashdRun from '@slashd/run'
 
-SlashdRun.setup({restrict:true, deps:['https://unpkg.com/numbro', 'https://unpkg.com/dayjs', 'https://unpkg.com/lodash']})
+SlashdRun.setup({restrict:true, deps:['https://unpkg.com/numbro', 'https://unpkg.com/dayjs', 'https://unpkg.com/lodash', 'https://unpkg.com/d3']})
 
 const result = ref('Hey')
 const err = ref(false)
@@ -37,10 +37,14 @@ const handleEditorMount = (editor, monaco) => {
 }
 
 const snippets = [
+  {label:'Hello World', code:'return "Hello World"'},
   {label:'Random', code:'return Math.random()'},
   {label:'Numbro', code:'return numbro(1000).format({thousandSeparated:true})'},
   {label:'DayJs', code:'return dayjs().format("DD MM YYYY")'},
-  {label:'try to get contructor', code:"(_=>_).constructor('return this')().fetch('https://jsonplaceholder.typicode.com/todos').then(res => res.json())"}
+  {label:'LoDash', code:'return _.difference([2, 1], [2, 3])'},
+  {label:'D3js', code:'return d3.scaleLinear().domain([0,100]).range(["red", "blue"])(Math.random()*100)'},
+  {label:'try to get constructor', code:"(_=>_).constructor('return this')()"},
+  {label:'try to make fetch', code:"(_=>_).constructor('return this')().fetch('https://jsonplaceholder.typicode.com/todos').then(res => res.json())"}
 ]
 
 
