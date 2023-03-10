@@ -3,7 +3,7 @@ import {ref, onMounted} from 'vue'
 import Editor from '@guolao/vue-monaco-editor'
 import SlashdRun from '@slashd/run'
 
-SlashdRun.setup({restrict:true, deps:['https://unpkg.com/numbro', 'https://unpkg.com/dayjs', 'https://unpkg.com/lodash', 'https://unpkg.com/d3']})
+const task = new SlashdRun({restrict:true, deps:['https://unpkg.com/numbro', 'https://unpkg.com/dayjs', 'https://unpkg.com/lodash', 'https://unpkg.com/d3']})
 
 const result = ref('Hey')
 const err = ref(false)
@@ -14,7 +14,7 @@ let monacoRef = null
 const onChange = async (v) => {
   err.value = false
   try{
-    const res = await SlashdRun.exe(v, {})
+    const res = await task.exe(v, {})
     result.value = res
   }catch(e){
     err.value = true
