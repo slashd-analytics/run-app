@@ -3,7 +3,7 @@ import {ref, onMounted} from 'vue'
 import Editor from '@guolao/vue-monaco-editor'
 import SlashdRun from '@slashd/run'
 
-const task = new SlashdRun({restrict:true, deps:['https://unpkg.com/numbro', 'https://unpkg.com/dayjs', 'https://unpkg.com/lodash', 'https://unpkg.com/d3']})
+const task = new SlashdRun({restrict:false, deps:['https://unpkg.com/numbro', 'https://unpkg.com/dayjs', 'https://unpkg.com/lodash', 'https://unpkg.com/d3']})
 
 const result = ref('Hey')
 const err = ref(false)
@@ -43,6 +43,12 @@ const snippets = [
   {label:'DayJs', code:'return dayjs().format("DD MM YYYY")'},
   {label:'LoDash', code:'return _.difference([2, 1], [2, 3])'},
   {label:'D3js', code:'return d3.scaleLinear().domain([0,100]).range(["red", "blue"])(Math.random()*100)'},
+  {label:'Use Promise', code: `return new Promise((resolve, reject) => {
+	setTimeout(() => {
+	  resolve(Math.random())
+	}, 2000)
+})`},
+  {label: 'Use Await', code: `return await fetch('https://jsonplaceholder.typicode.com/todos').then(res => res.json())`},
   {label:'try to get constructor', code:"(_=>_).constructor('return this')()"},
   {label:'try to make fetch', code:"(_=>_).constructor('return this')().fetch('https://jsonplaceholder.typicode.com/todos').then(res => res.json())"}
 ]

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@guolao/vue-monaco-editor": "^1.1.1",
-    "@slashd/run": "^0.0.16",
+    "@slashd/run": "^0.1.1",
     "vue": "^3.2.45"
   },
   "devDependencies": {
