@@ -3,7 +3,7 @@ import {ref, onMounted} from 'vue'
 import Editor from '@guolao/vue-monaco-editor'
 import SlashdRun from '@slashd/run'
 
-const task = new SlashdRun({restrict:true, deps:['https://unpkg.com/numbro', 'https://unpkg.com/dayjs', 'https://unpkg.com/lodash', 'https://unpkg.com/d3']})
+const task = new SlashdRun({restrict:true, deps:['https://unpkg.com/numbro@2.4', 'https://unpkg.com/dayjs', 'https://unpkg.com/lodash', 'https://unpkg.com/d3']})
 
 const result = ref('Hey')
 const err = ref(false)
